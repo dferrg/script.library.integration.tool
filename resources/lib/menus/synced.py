@@ -193,7 +193,7 @@ class SyncedMenu():
             notification(STR_ITEM_IS_ALREADY_MANAGED)
         else:
             # Add item to database
-            item = build_json_item([file, title, 'movie', None, year])
+            item = build_json_item([file, title.encode("ascii","ignore").decode(), 'movie', None, year])
             self.database.add_content_item(build_contentitem(item))
             notification('%s: %s' % (
                 STR_MOVIE_STAGED,

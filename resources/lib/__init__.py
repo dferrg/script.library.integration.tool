@@ -42,6 +42,7 @@ def build_contentitem(jsonitem):
         'tvshow': EpisodeItem,
         'movie': MovieItem
     }
+    jsonitem['title']=jsonitem['title'].encode('ascii','ignore').decode()
     return command[jsonitem['type']](jsonitem).returasjson()
 
 
